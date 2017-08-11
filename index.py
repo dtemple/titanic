@@ -4,19 +4,19 @@ import numpy as np
 import random as rnd
 
 # visualization
-#import seaborn as sns
-#import matplotlib.pyplot as plt
+import seaborn as sns
+import matplotlib.pyplot as plt
 #%matplotlib inline
 
 # machine learning
-#from sklearn.linear_model import LogisticRegression
-#from sklearn.svm import SVC, LinearSVC
-#from sklearn.ensemble import RandomForestClassifier
-#from sklearn.neighbors import KNeighborsClassifier
-#from sklearn.naive_bayes import GaussianNB
-#from sklearn.linear_model import Perceptron
-#from sklearn.linear_model import SGDClassifier
-#from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC, LinearSVC
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import Perceptron
+from sklearn.linear_model import SGDClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 train_df = pd.read_csv('~/PycharmProjects/titanic/data/train.csv')
 test_df = pd.read_csv('~/PycharmProjects/titanic/data/test.csv')
@@ -38,3 +38,9 @@ print(survivalByEmbarkation)
 print(survivalByClass)
 print(survivalBySibSp)
 print(survivalByParch)
+
+g = sns.FacetGrid(train_df, col='Survived')
+g.map(plt.hist, 'Pclass',bins=3)
+
+g = sns.FacetGrid(train_df, col='Survived')
+g.map(plt.hist, 'Pclass')
